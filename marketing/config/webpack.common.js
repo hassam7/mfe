@@ -1,5 +1,5 @@
-// const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const { ModuleFederationPlugin } = require("webpack").container;
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
   module: {
     rules: [
@@ -16,4 +16,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: `./public/index.html`,
+    }),
+  ],
 };
