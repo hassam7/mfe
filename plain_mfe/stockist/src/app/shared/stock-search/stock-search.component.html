@@ -1,0 +1,8 @@
+<nz-select style="width: 100%" nzShowSearch nzServerSearch nzPlaceHolder="input search text" [(ngModel)]="selectedValue"
+  [nzShowArrow]="false" (nzOnSearch)="search($event)"
+  [nzPlaceHolder]="'Type to Search for Stock'" (ngModelChange)="valueSelected($event)">
+  <nz-option nzCustomContent *ngFor="let o of listOfOption" [nzLabel]="o.name" [nzValue]="o.symbol">
+    <i nz-icon nzType="area-chart"></i>
+    {{o.name}} ({{o.symbol}})
+  </nz-option>
+</nz-select>

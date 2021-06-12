@@ -1,0 +1,9 @@
+<ul nz-list [nzDataSource]="recentlyViewedStocks" nzBordered nzSize="large"
+  [nzRenderItem]="largeItem" [nzNoResult]="'Recently visited stocks would appear here'">
+  <ng-template #largeItem let-item>
+    <li class="recently-viewed-item ant-list-item">
+      <div class="symbol">{{item}}</div>
+      <div class="symbol-details"><a [routerLink]="['/stock', item]">Details</a></div>
+    </li>
+  </ng-template>
+</ul>

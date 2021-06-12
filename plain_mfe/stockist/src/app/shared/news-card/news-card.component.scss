@@ -1,0 +1,27 @@
+.container {
+  position: relative;
+}
+.news-list {
+  min-height: 1110px;
+}
+
+.spinner {
+  i {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #d9d9d9;
+  }
+}
+
+.news-list-item {
+  display: flex;
+  justify-content: space-between;
+
+  .details {
+    margin-left: auto;;
+  }
+}

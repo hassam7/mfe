@@ -1,0 +1,22 @@
+<div nz-row nzGutter="16">
+  <div nz-col nzSpan="6">
+    <nz-divider nzText="Stocks: Most Active"></nz-divider>
+    <stock-card [type]="'active'"></stock-card>
+    <nz-divider nzText="Stocks: Gainer"></nz-divider>
+    <stock-card [type]="'gainer'"></stock-card>
+    <nz-divider nzText="Stocks: Loser"></nz-divider>
+    <stock-card [type]="'loser'"></stock-card>
+  </div>
+  <div nz-col nzSpan="12">
+    <nz-divider nzText="Hot News"></nz-divider>
+    <app-news-card></app-news-card>
+  </div>
+  <div nz-col nzSpan="6">
+    <nz-divider nzText="Recently Viewed Stocks"></nz-divider>
+    <app-recently-viewed-stocks></app-recently-viewed-stocks>
+    <ng-template #extraTemplate>
+      <a>More</a>
+    </ng-template>
+    <nz-divider nzText="Manage Portfolio"></nz-divider>
+  </div>
+</div>

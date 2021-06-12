@@ -1,0 +1,101 @@
+<nz-spin [nzSpinning]="isLoading">
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <a [routerLink]="['/home']">Home</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      Stock Details for: {{companyProfile?.companyName}}
+    </nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <br>
+
+  <div nz-row [nzGutter]="16" class="graph-detail">
+    <div nz-col nzSpan="18">
+      <nz-card [nzTitle]="stockSymbol">
+        <app-stock-graph-mini [stockData]="stockHistoricalPrice" (dataSelected)="onDataSelected($event)"></app-stock-graph-mini>
+      </nz-card>
+    </div>
+    <div nz-col nzSpan="6">
+      <nz-card [nzTitle]="selectedData ? 'Selected Data' : 'Click on graph to see details'" class="info-card">
+        <ng-container *ngIf="selectedData">
+          <p>Open: {{selectedData?.open | number: '1.0-2'}}</p>
+          <p>Close: {{selectedData?.close | number: '1.0-2'}}</p>
+          <p>High: {{selectedData?.high | number: '1.0-2'}}</p>
+          <p>Volume: {{selectedData?.volume | number: '1.0-2'}}</p>
+          <p>Date: {{selectedData?.date | date:'fullDate'}}</p>
+        </ng-container>
+      </nz-card>
+    </div>
+  </div>
+
+  <div nz-row [nzGutter]="16" class="summary-cards">
+    <nz-col [nzSpan]="12">
+      <nz-table [nzTemplateMode]="true" [nzSize]="'small'">
+        <tbody>
+          <tr>
+            <th colspan="2">Summary</th>
+          </tr>
+          <tr>
+            <td>Previous Close</td>
+            <td>{{stockQuote?.previousClose | number: '1.0-2'}}</td>
+          </tr>
+          <tr>
+            <td>Open</td>
+            <td>{{stockQuote?.open | number: '1.0-2' }}</td>
+          </tr>
+          <tr>
+            <td>High</td>
+            <td>{{stockQuote?.dayHigh | number: '1.0-2' }}</td>
+          </tr>
+          <tr>
+            <td>Low</td>
+            <td>{{stockQuote?.dayLow | number: '1.0-2' }}</td>
+          </tr>
+          <tr>
+            <td>Volume</td>
+            <td>{{stockQuote?.volume | number: '1.0-2'}}</td>
+          </tr>
+          <tr>
+            <td>Average Volume</td>
+            <td>{{stockQuote?.avgVolume | number: '1.0-2'}}</td>
+          </tr>
+          <tr>
+            <td>Earnings Announcement</td>
+            <td>{{stockQuote?.earningsAnnouncement | date:'fullDate'}}</td>
+          </tr>
+          <tr>
+            <td>Market Cap</td>
+            <td>{{stockQuote?.marketCap | number: '1.0-2'}}</td>
+          </tr>
+
+        </tbody>
+      </nz-table>
+    </nz-col>
+    <nz-col [nzSpan]="12">
+      <nz-table [nzTemplateMode]="true" [nzSize]="'small'">
+        <tbody>
+          <tr>
+            <th colspan="2">Company Profile</th>
+          </tr>
+          <tr>
+            <td>Company Name</td>
+            <td>{{companyProfile?.companyName}}</td>
+          </tr>
+          <tr>
+            <td>CEO</td>
+            <td>{{companyProfile?.ceo}}</td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td>{{companyProfile?.description}}</td>
+          </tr>
+          <tr>
+            <td>Website</td>
+            <td>{{companyProfile?.website}}</td>
+          </tr>
+
+        </tbody>
+      </nz-table>
+    </nz-col>
+  </div>
+</nz-spin>

@@ -1,0 +1,35 @@
+<div class="container" style="position: relative;">
+  <ng-template #indicatorTemplate>
+    <div class="spinner">
+      <i nz-icon nzType="loading" style="font-size: 24px;"></i>
+    </div>
+  </ng-template>
+  <nz-spin *ngIf="isLoading;else table" nzSimple [nzIndicator]="indicatorTemplate"> </nz-spin>
+
+  <ng-template #table>
+    <nz-table #basicTable nzSize="middle" [nzData]="stockData" [nzShowPagination]="false">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Last Price</th>
+          <th>Change</th>
+          <th>% Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td nzBreakWord><a [routerLink]="['/stock', data.ticker]">{{ data.ticker }}</a></td>
+          <td>{{ data.price | number: '1.0-2'}}</td>
+          <td
+            [ngClass]="{'ant-alert-error': isNegative(data.changesPercentage), 'ant-alert-success': isPositive(data.changes)}">
+            {{ data.changes | number: '1.0-2' }}
+          </td>
+          <td
+            [ngClass]="{'ant-alert-error': isNegative(data.changesPercentage), 'ant-alert-success': isPositive(data.changes)}">
+            {{ data.changesPercentage }}
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </ng-template>
+</div>

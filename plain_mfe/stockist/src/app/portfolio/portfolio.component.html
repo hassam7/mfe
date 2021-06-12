@@ -1,0 +1,56 @@
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['/home']">Home</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    Portfolios
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+<br>
+
+<div class="content">
+  <nz-page-header nzTitle="My Portfolios">
+    <nz-page-header-extra>
+      <button nz-button nzType="primary" (click)="showModal()">Create Portfolio</button>
+    </nz-page-header-extra>
+  </nz-page-header>
+  <nz-empty *ngIf="false" [nzNotFoundContent]="contentTpl">
+    <ng-template #contentTpl>
+      <span> You do not have any portfolio! <a href="#API">Click here to create one</a> </span>
+    </ng-template>
+  </nz-empty>
+
+  <nz-table #basicTable [nzData]="portfolios" [nzShowPagination]="false">
+    <thead>
+      <tr>
+        <th>Portfolio Name</th>
+        <th>Symbols</th>
+        <th>Market Value</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td><a href="#">{{ data.name }}</a></td>
+        <td>{{ data.age }}</td>
+        <td>{{ data.address }}</td>
+        <td>
+          <a>View Details</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+
+
+</div>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Create Portfolio">
+  <input nz-input placeholder="Enter Portfolio Name" />
+
+  <div *nzModalFooter>
+    <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+    <button nz-button nzType="primary" (click)="handleOk()" [nzLoading]="isOkLoading">Submit</button>
+  </div>
+</nz-modal>

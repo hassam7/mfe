@@ -1,0 +1,17 @@
+<h1><a [routerLink]="'/'">Stockist Inc</a></h1>
+<div class="search">
+  <app-stock-search (symbolSelected)="onSymbolSelected($event)"></app-stock-search>
+</div>
+<div class="login">
+  <nz-avatar *ngIf="loginService.isUserLoggedIn" nz-dropdown [nzDropdownMenu]="menu" [nzSize]="32" nzIcon="user" style="background-color:#87d068;">
+  </nz-avatar>
+  <a *ngIf="!loginService.isUserLoggedIn" [routerLinkActive]="'active'" [routerLink]="'/login'" nz-button nzType="default" nzGhost>Login</a>
+</div>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu nzSelectable>
+    <li nz-menu-item><a [routerLink]="'/home'">Home</a></li>
+    <li nz-menu-item><a [routerLink]="'/portfolio'">Portfolio</a></li>
+    <li nz-menu-item><a [routerLink]="'/logout'">Logout</a></li>
+  </ul>
+</nz-dropdown-menu>

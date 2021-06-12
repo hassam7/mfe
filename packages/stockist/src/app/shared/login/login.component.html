@@ -1,0 +1,42 @@
+<div nz-row [nzGutter]="48">
+  <div nz-col nzSpan="12">
+    <nz-card class="signup" [nzBordered]="false" nzTitle="Login To Access">
+      <ul>
+        <li>Access Favourites</li>
+        <li>Manage Portfolios</li>
+        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+        <li>officia repudiandae inventore porro facilis?</li>
+        <li>Accusantium dolorem a qui dolorum at</li>
+        <li>repellendus, vitae quaerat beatae quasi tenetur</li>
+        <li> necessitatibus sequi magnam vel quisquam, </li>
+      </ul>
+      <div>Do not have access? <a [routerLink]="'/sign-up'">Sign up now</a></div>
+    </nz-card>
+  </div>
+  <div nz-col nzSpan="12">
+    <nz-card nzTitle="Log In" [nzBordered]="false" class="login">
+      <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please enter username!">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="text" nz-input formControlName="userName" placeholder="Username" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please enter Password!">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="password" placeholder="Password" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <a class="login-form-forgot" class="login-form-forgot">Forgot password</a>
+            <button nz-button class="login-form-button" [nzType]="'primary'">Log in</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </nz-card>
+  </div>
+</div>

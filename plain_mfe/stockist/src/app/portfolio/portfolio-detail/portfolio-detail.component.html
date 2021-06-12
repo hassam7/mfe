@@ -1,0 +1,26 @@
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['/home']">Home</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    <a [routerLink]="['/portfolio']">Portfolios</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    {{portfolioName}}
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+<br>
+
+<div class="content">
+  <nz-tabset>
+    <nz-tab nzTitle="Summary">
+      Add Symbol
+    </nz-tab>
+    <nz-tab nzTitle="My Holdings">
+      Content of Tab Pane 2
+    </nz-tab>
+    <nz-tab nzTitle="Fundamentals">
+      Content of Tab Pane 3
+    </nz-tab>
+  </nz-tabset>
+</div>

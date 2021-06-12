@@ -1,0 +1,19 @@
+<div class="container">
+  <ng-template #indicatorTemplate>
+    <div class="spinner">
+      <i nz-icon nzType="loading" style="font-size: 24px;"></i>
+    </div>
+  </ng-template>
+
+  <nz-spin *ngIf="isLoading;else list" nzSimple [nzIndicator]="indicatorTemplate"> </nz-spin>
+  <ng-container #list>
+    <ul class="news-list" nz-list [nzDataSource]="newsArticles" nzBordered nzSize="large" [nzRenderItem]="largeItem">
+      <ng-template #largeItem let-item>
+        <li class="news-list-item ant-list-item">
+          <div class="headline">{{item.title}}</div>
+          <div class="details"><a [href]="item.url" target="_blank">Details</a></div>
+        </li>
+      </ng-template>
+    </ul>
+  </ng-container>
+</div>

@@ -1,0 +1,24 @@
+:host {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  color: gold;
+}
+
+.search {
+  width: 60%;
+}
+
+a,
+a:active,
+a:visited,
+a:hover {
+  color: currentColor;
+}
+
+.login {
+  width: 68px;
+}

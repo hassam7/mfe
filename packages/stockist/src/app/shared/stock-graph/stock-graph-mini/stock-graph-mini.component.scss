@@ -1,0 +1,36 @@
+:host {
+  display: block;
+  height: 300px;
+  width: 100%;
+}
+
+:host ::ng-deep svg {
+  .line {
+    stroke: steelblue;
+    fill: none;
+    stroke-width: 0.5px;
+  }
+
+  .overlay {
+    fill: none;
+    pointer-events: all;
+  }
+
+  .focus circle {
+    fill: steelblue;
+  }
+
+  .focus text {
+    font-size: 12px;
+  }
+
+  .tooltip {
+    fill: white;
+    stroke: #000;
+  }
+
+  .tooltip-date,
+  .closing {
+    font-weight: bold;
+  }
+}
